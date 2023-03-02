@@ -11,18 +11,13 @@
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
           <li>
-            <a class="nav-link text-light" href="/users/<%= current_user.id %>" >
+            <a class="nav-link text-light" href="/" >
               <i class="fas fa-home"></i>Home
             </a>
           </li>
           <li>
-            <a class="nav-link text-light" href="/users">
-              <i class="fas fa-users"></i>Users
-            </a>
-          </li>
-          <li>
-            <a class="nav-link text-light" href="/books">
-              <i class="fas fa-book-open"></i>Books
+            <a class="nav-link text-light" href="/facilities/new">
+              <i class="fas fa-users"></i>New Location
             </a>
           </li>
           <li>
@@ -34,11 +29,6 @@
           <li>
             <a class="nav-link text-light" href="/">
               <i class="fas fa-home"></i>Home
-            </a>
-          </li>
-          <li>
-            <a class="nav-link text-light" href="/homes/about">
-              <i class="fas fa-link"></i>About
             </a>
           </li>
           <li>
