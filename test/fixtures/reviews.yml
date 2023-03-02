@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  people: 1
+  borrowed_goods: MyString
+  usage_fee: MyString
+  body: MyText
+
+two:
+  people: 1
+  borrowed_goods: MyString
+  usage_fee: MyString
+  body: MyText
