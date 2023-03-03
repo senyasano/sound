@@ -15,14 +15,16 @@ class FacilitiesController < ApplicationController
   end
 
   def show
-    @facility =Facility.find(params[:id])
-    p @facility
+    @facility = Facility.find(params[:id])
+    @review = Review.new
   end
 
   def update
+    # 第二期作成
   end
 
   def destroy
+    # 第二期作成
   end
 
 

@@ -16,25 +16,9 @@
               <li class="list-group-item"><%= @facility.address %></li>
               <li class="list-group-item"><%= link_to "サイトはこちら", @facility.url %></li>
             </ul>
+            <p>updated by <%= @facility.user.name %></p>
           </div>
         </div>
-        <div class="form-body p-4">
-        <%= form_with model: @facility, local:true do |f| %>
-          <div class="input-group mb-3 mt-4">
-            <div class="input-group-prepend">
-              <span class="input-group-text" aria-hidden="true"><i class="fas fa-building"></i></span>
-            </div>
-            <%= f.text_field :name, class:"form-control", placeholder:"施設名" %>
-          </div>
-          <%= f.text_area :address, class:"form-control", rows:"3", placeholder:"住所をここに" %>
-
-          <%= f.url_field :url, class:"form-control", rows:"3", placeholder:"HPのURLをここに" %>
-          <br>
-          <h6 class="text-dark ba-light b-4 mb-0">写真(任意)</h6>
-          <%= f.attachment_field :image, class: "w-100" %>
-          <hr>
-          <%= f.submit '投稿', class:"btn btn-lg btn-block btn-info mt-4" %>
-        <% end %>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
-  
-  belong_to :user
-  belong_to :facility
+
+  belongs_to :user
+  belongs_to :facility
 end

@@ -3,7 +3,12 @@
   <div class='container px-5 px-sm-0'>
 
     <div class='row'>
-      <div class='col-md-3'>
+      <div class='col-md-3 col-sm-0'>
+        <% if user_signed_in? %>
+          <%= render 'facilities/sidebar', user: current_user %>
+        <% else %>
+          <%= render 'facilities/nologin' %>
+        <% end %>
       </div>
 
      <div class='col-md-8 offset-md-1'>
