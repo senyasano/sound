@@ -11,6 +11,7 @@ class FacilitiesController < ApplicationController
   end
 
   def index
+    @facilities = Facility.all
   end
 
   def show
