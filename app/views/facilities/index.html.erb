@@ -26,9 +26,9 @@
                   </a>
                 </td>
                 <td>
-                  <a href="/books/<%= f.id %>">
+                  <%= link_to facility_path(f.id) do %>
                     <%= f.name %>
-                  </a>
+                  <% end %>
                 </td>
                 <td><%= f.address %></td>
               </tr>
