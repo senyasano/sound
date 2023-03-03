@@ -5,7 +5,9 @@ class FacilitiesController < ApplicationController
 
   def create
     @facility = Facility.new(facility_params)
-    
+    @facility.user_id= current_user.id
+    @facility.save
+    redirect_to new_facility_comment_path(@facility.id)
   end
 
   def index
@@ -24,6 +26,6 @@ class FacilitiesController < ApplicationController
   private
   def facility_params
     # 必要であればカラムを追記する
-    params.rezuire(:facility).permit(:name, :body, :image)
+    params.require(:facility).permit(:name, :body, :image)
   end
 end
