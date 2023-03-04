@@ -7,7 +7,7 @@ class FacilitiesController < ApplicationController
     @facility = Facility.new(facility_params)
     @facility.user_id= current_user.id
     @facility.save
-    redirect_to new_facility_comment_path(@facility.id)
+    redirect_to new_facility_review_path(@facility.id)
   end
 
   def index

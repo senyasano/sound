@@ -6,9 +6,23 @@
   </tr>
 </table>
 <div class='row'>
-  <%= link_to edit_user_path(current_user.id), class:"btn btn-outline-secondary btn-block" do %>
+  <%= link_to edit_user_path(user.id), class:"btn btn-outline-secondary btn-block" do %>
     ユーザー名変更
     <i class="fas fa-user-cog"></i>
   <% end %>
+
 </div>
+
+<hr>
+
+<div>
+  <h3>投稿履歴</h3>
+  <% user.reviews.each do |r| %>
+    <%= link_to facility_path(r.facility.id) do %>
+      <%= r.created_at %><br>
+      <%= r.facility.name %>
+    <% end %>
+  <% end %>
+</div>
+
 
