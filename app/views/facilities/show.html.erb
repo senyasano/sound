@@ -24,6 +24,21 @@
             <p>updated by <%= @facility.user.name %></p>
           </div>
         </div>
+
+        <% @reviews.each do |r| %>
+          <div class= "card w-75">
+            <div class="card-body">
+              <h5 class="card-title"><%= r.updated_at %></h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><%= r.people %>人で利用</li>
+                <li class="list-group-item"><%= r.usage_fee %>円</li>
+                <li class="list-group-item"><%= r.borrowed_goods %></li>
+                <li class="list-group-item"><%= r.body %></li>
+              </ul>
+              <p>updated by <%= r.user.name %></p>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

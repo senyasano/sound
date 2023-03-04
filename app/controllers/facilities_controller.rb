@@ -16,6 +16,8 @@ class FacilitiesController < ApplicationController
 
   def show
     @facility = Facility.find(params[:id])
+    @reviews = Review.where(facility_id: params[:id])
+    p @reviews
   end
 
   def edit

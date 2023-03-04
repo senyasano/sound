@@ -10,8 +10,7 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     @review.facility_id = facility.id
     @review.save
-    p @review
-    redirect_to root_path
+    redirect_to facility_path(params[:facility_id])
   end
 
 
