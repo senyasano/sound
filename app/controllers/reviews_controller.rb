@@ -19,7 +19,9 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    # 第二期作成
+    review = Review.find(params[:id])
+    review.destroy
+    redirect_to facility_path(params[:facility_id])
   end
 
   private

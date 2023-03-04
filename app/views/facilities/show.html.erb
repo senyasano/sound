@@ -24,16 +24,20 @@
             <p>updated by <%= @facility.user.name %></p>
           </div>
         </div>
+        <hr>
+
+        <h3><%= @reviews.count %>件のレビュー</h3>
 
         <% @reviews.each do |r| %>
-          <div class= "card w-75">
+          <div class= "card w-100">
             <div class="card-body">
               <h5 class="card-title"><%= r.updated_at %></h5>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item"><%= r.people %>人で利用</li>
-                <li class="list-group-item"><%= r.usage_fee %>円</li>
-                <li class="list-group-item"><%= r.borrowed_goods %></li>
-                <li class="list-group-item"><%= r.body %></li>
+                <li class="list-group-item">利用人数：<%= r.people %></li>
+                <li class="list-group-item">利用料：<%= r.usage_fee %>円</li>
+                <li class="list-group-item">借用品：<%= r.borrowed_goods %></li>
+                <li class="list-group-item">利用してみての感想：<%= r.body %></li>
+                <li><%= link_to "削除" ,facility_review_path(r.facility_id ,r.id), method: :delete, class:"btn btn-danger" %></li>
               </ul>
               <p>updated by <%= r.user.name %></p>
             </div>
