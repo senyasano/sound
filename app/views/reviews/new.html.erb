@@ -21,6 +21,14 @@
           </p>
         </div>
         <div class="form-body p-4">
+           <% if @review.errors.any? %>
+            <h2><%= @review.errors.count %>error prohibited this obj from being saved:</h2>
+            <ul>
+            <% @review.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          <% end %>
           <%= form_with model: @review, url: facility_reviews_path, local:true do |f| %>
             <div class="input-group mb-3 mt-4">
               <%= f.text_field :people, class:"form-control", placeholder:"利用人数" %>

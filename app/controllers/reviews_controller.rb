@@ -9,9 +9,13 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     @review.facility_id = facility.id
-    @review.save
-    flash[:notice] = 'You have posted new review successfully.'
-    redirect_to facility_path(params[:facility_id])
+    if @review.save
+      flash[:notice] = 'You have posted new review successfully.'
+      redirect_to facility_path(params[:facility_id])
+    else
+      @facility = Facility.find(params[:facility_id])
+      render :new
+    end
   end
 
 

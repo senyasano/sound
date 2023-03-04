@@ -6,9 +6,13 @@ class FacilitiesController < ApplicationController
   def create
     @facility = Facility.new(facility_params)
     @facility.user_id= current_user.id
-    @facility.save
-    flash[:notice] = 'You have registered new facility successfully.'
-    redirect_to new_facility_review_path(@facility.id)
+    if @facility.save
+      flash[:notice] = 'You have registered new facility successfully.'
+      redirect_to new_facility_review_path(@facility.id)
+    else
+      render :new
+    end
+
   end
 
   def index

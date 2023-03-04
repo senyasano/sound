@@ -12,11 +12,10 @@
       </div>
 
       <div class="col-md-8 offset-md-1" >
-        <h2>Facility detail</h2>
+        <h2><%= @facility.name %></h2>
         <div class= "card w-75">
           <%= attachment_image_tag @facility, :image, format:'jpeg', fallback:"default-image.jpg" , class:"card-image-top"%>
           <div class="card-body">
-            <h5 class="card-title"><%= @facility.name %></h5>
             <ul class="list-group list-group-flush">
               <li class="list-group-item"><%= @facility.address %></li>
               <li class="list-group-item"><%= link_to "サイトはこちら", @facility.url %></li>

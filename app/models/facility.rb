@@ -3,4 +3,15 @@ class Facility < ApplicationRecord
 
   has_many :reviews ,dependent: :destroy
   belongs_to :user
+
+  validates :name,
+    presence: true,
+    uniqueness: true
+
+  validates :address,
+    presence: true,
+    uniqueness: true
+
+  validates :url,
+    presence: true
 end

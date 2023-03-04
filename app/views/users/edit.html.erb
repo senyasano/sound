@@ -3,6 +3,14 @@
     <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
       <h5 class="text-dark bg-light p-4 mb-0">ユーザーネーム変更</h5>
       <div class="form-body p-4">
+        <% if @user.errors.any? %>
+          <h2><%= @user.errors.count %>error prohibited this obj from being saved:</h2>
+          <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        <% end %>
         <%= form_with model: @user, local:true do |f| %>
           <div class="input-group mb-3 mt-4">
             <div class="input-group-prepend">
