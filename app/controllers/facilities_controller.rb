@@ -33,7 +33,6 @@ class FacilitiesController < ApplicationController
 
   private
   def facility_params
-    # 必要であればカラムを追記する
     params.require(:facility).permit(:name, :body, :image, :address, :url)
   end
 end
