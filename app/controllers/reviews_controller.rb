@@ -10,6 +10,7 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     @review.facility_id = facility.id
     @review.save
+    flash[:notice] = 'You have posted new review successfully.'
     redirect_to facility_path(params[:facility_id])
   end
 
@@ -21,6 +22,7 @@ class ReviewsController < ApplicationController
   def destroy
     review = Review.find(params[:id])
     review.destroy
+    flash[:notice] = 'You have deleted successfully'
     redirect_to facility_path(params[:facility_id])
   end
 

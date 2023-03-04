@@ -7,6 +7,7 @@ class FacilitiesController < ApplicationController
     @facility = Facility.new(facility_params)
     @facility.user_id= current_user.id
     @facility.save
+    flash[:notice] = 'You have registered new facility successfully.'
     redirect_to new_facility_review_path(@facility.id)
   end
 
