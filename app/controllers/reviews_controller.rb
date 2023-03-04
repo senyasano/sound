@@ -1,7 +1,6 @@
-class CommentsController < ApplicationController
+class ReviewsController < ApplicationController
   def new
     @facility = Facility.find(params[:facility_id])
-    @review = Review.new
   end
 
   def create
@@ -13,4 +12,5 @@ class CommentsController < ApplicationController
 
   def destroy
   end
+  
 end
