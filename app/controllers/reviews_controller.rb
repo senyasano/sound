@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
       render :new
     end
   end
-  
+
   def edit
     # 第二期作成
   end
@@ -36,7 +36,7 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit(:people, :borrowed_goods, :usage_fee, :body)
+    params.require(:review).permit(:people, :borrowed_goods, :usage_fee, :body, :satisfaction, :usage_time)
   end
 
 end

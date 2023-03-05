@@ -35,11 +35,13 @@
             <div class="card-body">
               <h5 class="card-title"><%= r.updated_at %><br>posted by <strong><%= r.user.name %></strong></h5>
               <ul class="list-group list-group-flush">
+                <li class="list-group-item">満足度：<%= r.satisfaction %></li>
                 <li class="list-group-item">利用人数：<%= r.people %></li>
+                <li class="list-group-item">利用時間：<%= r.usage_time %></li>
                 <li class="list-group-item">利用料：<%= r.usage_fee %>円</li>
                 <li class="list-group-item">借用品：<%= r.borrowed_goods %></li>
                 <li class="list-group-item">利用してみての感想：<%= r.body %></li>
-                <% if current_user.id == r.user.id %>
+                <% if current_user == r.user %>
                   <%= link_to "削除" ,facility_review_path(r.facility_id ,r.id), method: :delete,data: { confirm: "本当に削除しますか" }, class:"col-2  btn btn-danger btn-sm" %>
                 <% end %>
               </ul>

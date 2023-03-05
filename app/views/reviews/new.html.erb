@@ -31,21 +31,32 @@
             </ul>
           <% end %>
           <%= form_with model: @review, url: facility_reviews_path, local:true do |f| %>
+            <lavel for="Satisfaction">満足度</lavel>
+            <div>
+              <%= f.select :satsisfaction, [ [1],[2],[3],[4],[5] ], class:"form-control" %>
+            </div>
             <label for="People">利用人数</label>
             <div class="input-group mb-3 ">
-              <%= f.select :people, [ [1],[2],[3],[4],[5],[6],[7],[8],[9],['10人以上']], class:"form-control " %>
+              <%= f.select :people, [ [1],[2],[3],[4],[5],[6],[7],[8],[9],['10人以上']], class:"form-control" %>
             </div>
-            <label for="borrowed_goods">借用品</label>
+            <label for="borrowed_goods">借用品・備品</label>
             <div class="input-group mb-3 ">
-              <%= f.text_field :borrowed_goods, class:"form-control", rows:"3", placeholder:"借用品" %>
+              <%= f.text_field :borrowed_goods, class:"form-control", rows:"3", placeholder:"(例)無料で譜面台を借りれます" %>
+            </div>
+            <label for="borrowed_goods">使用時間</label>
+            <div class="input-group mb-3 ">
+              <%= f.text_field :usage_time, class:"form-control", rows:"3", placeholder:"(例)3時間" %>
             </div>
             <label for="usage_fee">利用料</label>
             <div class="input-group mb-3 ">
-              <%= f.text_field :usage_fee, class:"form-control", rows:"3", placeholder:"利用料" %>
+              <div class="input-group-prepend">
+                <span class="input-group-text" aria-hidden="true">円は除いた数</span>
+              </div>
+              <%= f.text_field :usage_fee, class:"form-control", rows:"3", placeholder:"(例)300" %>
             </div>
             <label for="body">感想</label>
             <div class="input-group mb-3 ">
-              <%= f.text_area :body, class:"form-control", rows:"3", placeholder:"感想" %>
+              <%= f.text_area :body, class:"form-control", rows:"3", placeholder:"例)部屋はきれいだった。受付の方の対応が良かった。" %>
             </div>
             <br>
             <%= f.submit '投稿', class:"btn btn-lg btn-block btn-info mt-4" %>
