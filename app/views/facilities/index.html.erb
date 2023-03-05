@@ -26,9 +26,7 @@
             <tbody>
               <tr>
                 <td>
-                  <a href="/users/<%= f.id %>" >
-                    <%= attachment_image_tag f, :image, :fill, 100, 100, format:'jpeg', fallback:"default-image.jpg" %>
-                  </a>
+                  <%= attachment_image_tag f, :image, :fill, 100, 100, format:'jpeg', fallback:"default-image.jpg" %>
                 </td>
                 <td>
                   <%= link_to facility_path(f.id) do %>

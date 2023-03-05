@@ -17,6 +17,10 @@ class ReviewsController < ApplicationController
       render :new
     end
   end
+  
+  def edit
+    # 第二期作成
+  end
 
 
   def update
