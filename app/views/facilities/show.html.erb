@@ -3,7 +3,7 @@
   <div class="container px-5 px-sm-0">
 
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-3 img-1">
         <% if user_signed_in? %>
           <%= render 'facilities/sidebar', user: current_user %>
         <% else %>
@@ -26,21 +26,21 @@
         <hr>
 
         <h3><%= @reviews.count %>件のレビュー</h3>
+          <%= link_to "レビュー追加", new_facility_review_path(@facility.id), class:"col-2 btn btn-sm btn-primary" %>
 
         <% @reviews.each do |r| %>
           <div class= "card w-100">
             <div class="card-body">
-              <h5 class="card-title"><%= r.updated_at %></h5>
+              <h5 class="card-title"><%= r.updated_at %><br>posted by <strong><%= r.user.name %></strong></h5>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">利用人数：<%= r.people %></li>
                 <li class="list-group-item">利用料：<%= r.usage_fee %>円</li>
                 <li class="list-group-item">借用品：<%= r.borrowed_goods %></li>
                 <li class="list-group-item">利用してみての感想：<%= r.body %></li>
                 <% if current_user.id == r.user.id %>
-                  <li><%= link_to "削除" ,facility_review_path(r.facility_id ,r.id), method: :delete,data: { confirm: "本当に削除しますか" }, class:"btn btn-danger" %></li>
+                  <%= link_to "削除" ,facility_review_path(r.facility_id ,r.id), method: :delete,data: { confirm: "本当に削除しますか" }, class:"col-2  btn btn-danger btn-sm" %>
                 <% end %>
               </ul>
-              <p>updated by <%= r.user.name %></p>
             </div>
           </div>
         <% end %>
