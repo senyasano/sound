@@ -21,11 +21,17 @@
           </div>
           <label for="Name">住所</label>
           <div class="input-group mb-3">
-            <%= f.text_area :address, class:"form-control", rows:"3", placeholder:"住所をここに" %>
+            <div class="input-group-prepend">
+              <span class="input-group-text" aria-hidden="true"><i class="fas fa-map-marked"></i></span>
+            </div>
+            <%= f.text_area :address, class:"form-control", rows:"3", placeholder:"例)杉並区泉3丁目〇×" %>
           </div>
           <label for="Name">施設のURL</label>
           <div class="input-group mb-3">
-            <%= f.url_field :url, class:"form-control", rows:"3", placeholder:"HPのURLをここに" %>
+            <div class="input-group-prepend">
+              <span class="input-group-text" aria-hidden="true"><i class="fab fa-internet-explorer"></i></span>
+            </div>
+            <%= f.url_field :url, class:"form-control", rows:"3", placeholder:"https://~" %>
           </div>
           <label for="Name">写真(任意)</label>
           <div class="input-group mb-3">
