@@ -2,12 +2,15 @@ class ReviewsController < ApplicationController
   def new
     @facility = Facility.find(params[:facility_id])
     @review = Review.new
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
   end
 
   def create
     facility = Facility.find(params[:facility_id])
     @review = Review.new(review_params)
-    @review.user_id = current_user.id
+    @review.user = current_user
     @review.facility_id = facility.id
     if @review.save
       flash[:notice] = 'You have posted new review successfully.'
