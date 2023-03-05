@@ -12,19 +12,25 @@
             </ul>
           <% end %>
         <%= form_with model: @facility, local:true do |f| %>
-          <div class="input-group mb-3 mt-4">
+          <label for="Name">施設名</label>
+          <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text" aria-hidden="true"><i class="fas fa-building"></i></span>
             </div>
             <%= f.text_field :name, class:"form-control", placeholder:"施設名" %>
           </div>
-          <%= f.text_area :address, class:"form-control", rows:"3", placeholder:"住所をここに" %>
-
-          <%= f.url_field :url, class:"form-control", rows:"3", placeholder:"HPのURLをここに" %>
-          <br>
-          <h6 class="text-dark ba-light b-4 mb-0">写真(任意)</h6>
-          <%= f.attachment_field :image, class: "w-100" %>
-          <hr>
+          <label for="Name">住所</label>
+          <div class="input-group mb-3">
+            <%= f.text_area :address, class:"form-control", rows:"3", placeholder:"住所をここに" %>
+          </div>
+          <label for="Name">施設のURL</label>
+          <div class="input-group mb-3">
+            <%= f.url_field :url, class:"form-control", rows:"3", placeholder:"HPのURLをここに" %>
+          </div>
+          <label for="Name">写真(任意)</label>
+          <div class="input-group mb-3">
+            <%= f.attachment_field :image, class: "w-100" %>
+          </div>
           <%= f.submit '投稿', class:"btn btn-lg btn-block btn-info mt-4" %>
         <% end %>
       </div>

@@ -13,8 +13,10 @@
 
       <div class="col-md-8 offset-md-1" >
         <h2><%= @facility.name %></h2>
-        <div class= "card w-75">
-          <%= attachment_image_tag @facility, :image, format:'jpeg', fallback:"default-image.jpg" , class:"card-image-top"%>
+        <div class= "card">
+          <div class="card-header">
+            <%= attachment_image_tag @facility, :image, :fill, 400, 100, format:'jpeg', fallback:"default-image.jpg" , class:"card-image-top"%>
+          </div>
           <div class="card-body">
             <ul class="list-group list-group-flush">
               <li class="list-group-item"><%= @facility.address %></li>
