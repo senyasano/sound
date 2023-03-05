@@ -36,7 +36,9 @@
                 <li class="list-group-item">利用料：<%= r.usage_fee %>円</li>
                 <li class="list-group-item">借用品：<%= r.borrowed_goods %></li>
                 <li class="list-group-item">利用してみての感想：<%= r.body %></li>
-                <li><%= link_to "削除" ,facility_review_path(r.facility_id ,r.id), method: :delete,data: { confirm: "本当に削除しますか" }, class:"btn btn-danger" %></li>
+                <% if current_user.id == r.user.id %>
+                  <li><%= link_to "削除" ,facility_review_path(r.facility_id ,r.id), method: :delete,data: { confirm: "本当に削除しますか" }, class:"btn btn-danger" %></li>
+                <% end %>
               </ul>
               <p>updated by <%= r.user.name %></p>
             </div>
