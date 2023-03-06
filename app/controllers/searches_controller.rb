@@ -1,11 +1,12 @@
 class SearchesController < ApplicationController
   def search
-    @range = params[:range]
+    @facilities = Facility.looks(params[:search], params[:word])
+    p @facilities
+  end
 
-    if @range == "User"
-      @users = User.looks(params[:search], params[:word])
-    else
-      @books = Book.looks(params[:search], params[:word])
-    end
+
+  private
+  def search_params
+    params.require(:search).permit(:word, :seach)
   end
 end

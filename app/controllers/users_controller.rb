@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
     if @user.update(user_params)
       flash[:notice] = 'You have updated your nickname successfully'
-      redirect_to root_path
+      redirect_to facilities_path
     else
       render :edit
     end

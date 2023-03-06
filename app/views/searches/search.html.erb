@@ -1,0 +1,45 @@
+<main>
+  <div class='container px-5 px-sm-0'>
+    <p id="notice"><%= flash[:notice] %></p>
+
+    <div class='row'>
+      <div class='col-md-3 d-none d-md-block'>
+        <% if user_signed_in? %>
+          <%= render 'facilities/sidebar', user: current_user %>
+        <% else %>
+          <%= render 'facilities/nologin' %>
+        <% end %>
+      </div>
+
+     <div class='col-md-8 offset-md-1'>
+        <h2>Facility</h2>
+        <p>お探しの施設がない場合、<%= link_to "こちらから登録" ,new_facility_path %>, </p>
+        <table class='table table-hover table-inverse'>
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Address</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <% @facilities.each do |f| %>
+            <tbody>
+              <tr>
+                <td>
+                  <%= attachment_image_tag f, :image, :fill, 100, 100, format:'jpeg', fallback:"default-image.jpg" %>
+                </td>
+                <td>
+                  <%= link_to facility_path(f.id) do %>
+                    <%= f.name %>
+                  <% end %>
+                </td>
+                <td><%= f.address %></td>
+              </tr>
+            </tbody>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>

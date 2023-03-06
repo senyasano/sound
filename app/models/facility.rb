@@ -14,4 +14,8 @@ class Facility < ApplicationRecord
 
   validates :url,
     presence: true
+
+  def self.looks(search, word)
+    @facility = Facility.where("name LIKE?","%#{word}%")
+  end
 end

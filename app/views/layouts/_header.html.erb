@@ -10,6 +10,17 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
+          <li>
+            <div class="search_form">
+              <%= form_with url: search_path, local: true, method: :get ,class:"nav-link text-light" do |f| %>
+                <%= f.text_field :word ,placeholder:"施設のキーワード"%>
+                <%= f.submit "検索", class: "btn btn-primary btn-sm" %>
+              <% end %>
+            </div>
+          </li>
+
+
+
           <% if user_signed_in? %>
           <li>
             <a class="nav-link text-light" href="/facilities" >
@@ -28,8 +39,8 @@
           </li>
           <% else %>
           <li>
-            <a class="nav-link text-light" href="/">
-              <i class="fas fa-home"></i>Home
+            <a class="nav-link text-light" href="/facilities">
+              <i class="fas fa-home"></i>一覧
             </a>
           </li>
           <li>
