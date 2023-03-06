@@ -27,13 +27,14 @@
         </div>
         <hr>
 
-        <h3><%= @reviews.count %>件のレビュー</h3>
+        <h3><%= @reviews_all.count %>件のレビュー</h3>
+          <p class="small">※正確な情報は各施設に確認してください</p>
           <%= link_to "レビュー追加", new_facility_review_path(@facility.id), class:"col-2 btn btn-sm btn-primary" %>
 
         <% @reviews.each do |r| %>
-          <div class= "card w-100">
+          <div class= "card w-100 mt-2">
             <div class="card-body">
-              <h5 class="card-title"><%= r.updated_at %><br>posted by <strong><%= r.user.name %></strong></h5>
+              <h5 class="card-title"><%= r.updated_at.in_time_zone('Tokyo') %><br>posted by <strong><%= r.user.name %></strong></h5>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">満足度：<%= r.satisfaction %></li>
                 <li class="list-group-item">利用人数：<%= r.people %></li>
@@ -48,6 +49,8 @@
             </div>
           </div>
         <% end %>
+
+        <%= paginate @reviews %>
       </div>
     </div>
   </div>

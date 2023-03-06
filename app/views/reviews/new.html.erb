@@ -31,15 +31,9 @@
             </ul>
           <% end %>
           <%= form_with model: @review, url: facility_reviews_path, local:true do |f| %>
-            <lavel for="Satisfaction">満足度</lavel>
+            <%= f.label :satisfaction ,"満足度(5段階)"%>
             <div>
-              <%= f.select :satsisfaction , class:"form-control custom-select"  do %>
-                <option>5</option>
-                <option>4</option>
-                <option selected>3</option>
-                <option>2</option>
-                <option>1</option>
-              <% end %>
+              <%= f.select :satisfaction, [ [5],[4],[3],[2],[1] ], class:"form-control" %>
             </div>
             <label for="People">利用人数</label>
             <div class="input-group mb-3 ">

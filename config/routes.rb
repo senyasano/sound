@@ -7,6 +7,6 @@ Rails.application.routes.draw do
     resources :reviews, only: ["new", "create", "update", "destroy"]
   end
 
-  resources :users, only: ["edit", "update"]
-  root to: "facilities#index"
+  resources :users, only: [ "edit", "update"]
+  root to: "homes#about"
 end

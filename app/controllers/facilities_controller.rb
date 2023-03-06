@@ -19,12 +19,13 @@ class FacilitiesController < ApplicationController
   end
 
   def index
-    @facilities = Facility.page(params[:page]).reverse_order
+    @facilities = Facility.page(params[:page]).reverse_order.per(5)
   end
 
   def show
     @facility = Facility.find(params[:id])
-    @reviews = Review.where(facility_id: params[:id])
+    @reviews = Review.where(facility_id: params[:id]).page(params[:page]).reverse_order.per(5)
+    @reviews_all = Review.where(facility_id: params[:id])
   end
 
   def edit
