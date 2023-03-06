@@ -3,7 +3,7 @@
     <p id="notice"><%= flash[:notice] %></p>
 
     <div class='row'>
-      <div class='col-md-3 col-sm-0'>
+      <div class='col-md-3 d-none d-md-block'>
         <% if user_signed_in? %>
           <%= render 'facilities/sidebar', user: current_user %>
         <% else %>
