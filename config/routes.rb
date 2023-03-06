@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [ "edit", "update"]
   root to: "homes#about"
+  
+  get "search" => "searches#search"
 end

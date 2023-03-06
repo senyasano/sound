@@ -1,10 +1,9 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user! ,except: [:show, :index ]
+
   def new
     @facility = Facility.find(params[:facility_id])
     @review = Review.new
-    unless user_signed_in?
-      redirect_to new_user_session_path
-    end
   end
 
   def create
