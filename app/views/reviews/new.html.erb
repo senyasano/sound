@@ -3,7 +3,7 @@
   <div class="container px-5 px-sm-0">
 
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-3 d-none d-md-block">
         <% if user_signed_in? %>
           <%= render 'facilities/sidebar', user: current_user %>
         <% else %>
