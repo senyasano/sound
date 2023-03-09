@@ -18,9 +18,8 @@
             <%= attachment_image_tag @facility, :image, :fill, 400, 100, format:'jpeg', fallback:"default-image.jpg" , class:"card-image-top"%>
           </div>
           <div class="card-body">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item"><%= @facility.address %></li>
-              <li class="list-group-item"><%= link_to "サイトはこちら", @facility.url %></li>
+              <%= @facility.address %><br>
+              <%= link_to "サイトはこちら", @facility.url %><br>
             </ul>
             <p>updated by <%= @facility.user.name %></p>
           </div>
@@ -29,7 +28,7 @@
 
         <h3><%= @reviews_all.count %>件のレビュー</h3>
           <p class="small">※正確な情報は各施設に確認してください</p>
-          <%= link_to "レビュー追加", new_facility_review_path(@facility.id), class:"col-2 btn btn-sm btn-primary" %>
+          <%= link_to "レビュー追加", new_facility_review_path(@facility.id), class:"col-2 btn btn-sm btn-primary mb-2" %>
 
         <% @reviews.each do |r| %>
           <div class= "card w-100 mt-2">
@@ -50,7 +49,7 @@
           </div>
         <% end %>
 
-        <%= paginate @reviews %>
+        <%= paginate @reviews%>
       </div>
     </div>
   </div>

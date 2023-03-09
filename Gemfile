@@ -74,4 +74,5 @@ gem 'font-awesome-sass'
 
 gem 'kaminari','~> 1.2.1'
 
+
 gem 'mysql2', '>= 0.4.4', '< 0.6.0' , group: :production

@@ -12,9 +12,11 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
-    <!--各テンプレートを読み出す-->
-    <%= yield %>
-    <%= render 'layouts/footer' %>
+      <div class="content">
+      <%= render 'layouts/header' %>
+      <!--各テンプレートを読み出す-->
+      <%= yield %>
+      </div>
+      <%= render 'layouts/footer' %>
   </body>
 </html>
